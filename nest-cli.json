@@ -18,33 +18,6 @@
         "tsConfigPath": "apps/gateway/tsconfig.app.json"
       }
     },
-    "jwt": {
-      "type": "library",
-      "root": "libs/jwt",
-      "entryFile": "index",
-      "sourceRoot": "libs/jwt/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/jwt/tsconfig.lib.json"
-      }
-    },
-    "bcrypt": {
-      "type": "library",
-      "root": "libs/bcrypt",
-      "entryFile": "index",
-      "sourceRoot": "libs/bcrypt/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/bcrypt/tsconfig.lib.json"
-      }
-    },
-    "logger": {
-      "type": "library",
-      "root": "libs/logger",
-      "entryFile": "index",
-      "sourceRoot": "libs/logger/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/logger/tsconfig.lib.json"
-      }
-    },
     "member": {
       "type": "application",
       "root": "apps/member",
@@ -52,6 +25,33 @@
       "sourceRoot": "apps/member/src",
       "compilerOptions": {
         "tsConfigPath": "apps/member/tsconfig.app.json"
+      }
+    },
+    "modules": {
+      "type": "library",
+      "root": "libs/modules",
+      "entryFile": "index",
+      "sourceRoot": "libs/modules/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/modules/tsconfig.lib.json"
+      }
+    },
+    "utils": {
+      "type": "library",
+      "root": "libs/utils",
+      "entryFile": "index",
+      "sourceRoot": "libs/utils/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/utils/tsconfig.lib.json"
+      }
+    },
+    "models": {
+      "type": "library",
+      "root": "libs/models",
+      "entryFile": "index",
+      "sourceRoot": "libs/models/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/models/tsconfig.lib.json"
       }
     }
   }

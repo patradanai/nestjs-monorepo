@@ -1,0 +1,16 @@
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  email      String   @unique
+  name       String?
+  providerId String   @map("provider_id")
+  role       Role     @default(USER)
+  profile    Profile?
+  password   String
+}
+
+
+enum Role {
+  USER
+  ADMIN
+  MODERATOR
+}

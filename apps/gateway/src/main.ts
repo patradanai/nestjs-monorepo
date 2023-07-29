@@ -10,9 +10,9 @@ import routes from './routes/routes'
 import { AppModule } from './app.module'
 import { setupProxies } from './middlewares/routes'
 import { setupAuthen } from './middlewares/auth'
-import { PrismaService } from './configs/database/prisma.service'
-import { AllExceptionsFilter } from 'libs/exceptionFilter'
-import { LoggerService } from '@app/logger'
+import { AllExceptionsFilter } from '@app/utils/filtters/httpException'
+import { LoggerService } from '@app/modules/globals/logger'
+import { PrismaService } from '@app/modules/database'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
