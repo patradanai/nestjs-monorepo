@@ -1,5 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
-import { MemberService } from './member.service';
+import { Controller, Get } from '@nestjs/common'
+
+import { MemberService } from './member.service'
 
 @Controller()
 export class MemberController {
@@ -7,6 +8,6 @@ export class MemberController {
 
   @Get()
   getHello(): string {
-    return this.memberService.getHello();
+    return this.memberService.getHello()
   }
 }

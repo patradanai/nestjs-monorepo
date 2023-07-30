@@ -1,18 +1,18 @@
-import { HttpAdapterHost, NestFactory } from '@nestjs/core'
+import { PrismaService } from '@app/modules/database'
+import { LoggerService } from '@app/modules/globals/logger'
+import { AllExceptionsFilter } from '@app/utils/filtters/httpException'
 import { ConfigService } from '@nestjs/config'
+import { HttpAdapterHost, NestFactory } from '@nestjs/core'
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify'
 
+import { AppModule } from './app.module'
+import { setupAuthen } from './middlewares/auth'
+import { setupProxies } from './middlewares/routes'
 // Contants
 import routes from './routes/routes'
-import { AppModule } from './app.module'
-import { setupProxies } from './middlewares/routes'
-import { setupAuthen } from './middlewares/auth'
-import { AllExceptionsFilter } from '@app/utils/filtters/httpException'
-import { LoggerService } from '@app/modules/globals/logger'
-import { PrismaService } from '@app/modules/database'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(

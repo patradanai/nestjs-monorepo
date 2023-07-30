@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { Logger, PARAMS_PROVIDER_TOKEN, Params, PinoLogger } from 'nestjs-pino'
+import { Logger, Params, PARAMS_PROVIDER_TOKEN, PinoLogger } from 'nestjs-pino'
 
 import { ILoggerService } from './adapter'
 

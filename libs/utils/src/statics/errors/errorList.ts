@@ -1,14 +1,15 @@
 import { HttpStatus } from '@nestjs/common'
+
 import { ErrorName } from './errorCode'
 
-export interface ErrorCode {
+export interface IErrorCode {
   status: number
   code: ErrorName
   description: string
   message: string
 }
 
-export const eCodeList: ErrorCode[] = [
+export const eCodeList: IErrorCode[] = [
   {
     status: HttpStatus.INTERNAL_SERVER_ERROR,
     code: ErrorName.E1005000,

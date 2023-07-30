@@ -1,5 +1,6 @@
 import { ErrCodeException } from '@app/models'
-import { ErrorName, eCodeList } from '../../statics/errors'
+
+import { eCodeList, ErrorName } from '../../statics/errors'
 
 export const ErrCodeByName = (errCode: ErrorName): ErrCodeException => {
   for (const error of eCodeList) {

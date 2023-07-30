@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common'
-import { LoggerService } from './logger.service'
 import { LoggerModule as LoggerModulePino } from 'nestjs-pino'
+
 import { EnvModule, EnvService } from '../env'
+import { LoggerService } from './logger.service'
 
 @Module({
   imports: [

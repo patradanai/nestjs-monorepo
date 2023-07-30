@@ -1,6 +1,7 @@
+import { ErrCodeByName, errorName } from '@app/utils/filtters/httpException'
 import { NestFastifyApplication } from '@nestjs/platform-fastify'
 import { NextFunction, Request, Response } from 'express'
-import { ErrCodeByName, errorName } from '@app/utils/filtters/httpException'
+
 import { AuthService } from '../auth/auth.service'
 import type routes from '../routes/routes'
 

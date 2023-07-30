@@ -1,7 +1,8 @@
-import { Test } from '@nestjs/testing'
-import { EnvService } from '../env.service'
 import { ConfigService } from '@nestjs/config'
+import { Test } from '@nestjs/testing'
+
 import { EnvModule } from '../env.module'
+import { EnvService } from '../env.service'
 
 describe('EnvService', () => {
   let envService: EnvService
@@ -32,13 +33,16 @@ describe('EnvService', () => {
 const mockConfigService = {
   get(key: string) {
     switch (key) {
-      case 'PORT':
-        return 3000 // Replace with your predefined values
-      case 'ENVIRONMENT':
+      case 'PORT': {
+        return 3000
+      } // Replace with your predefined values
+      case 'ENVIRONMENT': {
         return 'development'
+      }
       // Add more cases for other environment variables if needed
-      default:
+      default: {
         return null
+      }
     }
   },
 }

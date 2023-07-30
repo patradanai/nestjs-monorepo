@@ -1,7 +1,8 @@
-import { Module } from '@nestjs/common'
-import { JwtTokenService } from './jwt.service'
-import { JwtModule } from '@nestjs/jwt'
 import { EnvModule, EnvService } from '@app/modules/globals/env'
+import { Module } from '@nestjs/common'
+import { JwtModule } from '@nestjs/jwt'
+
+import { JwtTokenService } from './jwt.service'
 
 @Module({
   imports: [

@@ -1,12 +1,12 @@
+import { ErrCodeException } from '@app/models'
 import { LoggerService } from '@app/modules/globals/logger'
 import {
-  ExceptionFilter,
-  Catch,
   ArgumentsHost,
+  Catch,
+  ExceptionFilter,
   HttpStatus,
 } from '@nestjs/common'
 import { HttpAdapterHost } from '@nestjs/core'
-import { ErrCodeException } from '@app/models'
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {

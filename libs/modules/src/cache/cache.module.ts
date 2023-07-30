@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common'
-import { CacheService } from './cache.service'
-import { ICacheService } from './adapter'
+
 import { EnvService } from '../globals/env'
 import { LoggerService } from '../globals/logger'
+import { ICacheService } from './adapter'
+import { CacheService } from './cache.service'
 
 @Module({
   imports: [],

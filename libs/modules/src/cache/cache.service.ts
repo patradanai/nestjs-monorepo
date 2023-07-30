@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common'
-import { ICacheService } from './adapter'
 import { Redis } from 'ioredis'
+
 import { LoggerService } from '../globals/logger'
+import { ICacheService } from './adapter'
 
 @Injectable()
 export class CacheService implements ICacheService {
@@ -13,12 +14,11 @@ export class CacheService implements ICacheService {
     this.redis = new Redis(redisUrl)
   }
 
-  async ping(): Promise<any> {
+  async ping(): Promise<void> {
     const pong = await this.redis.ping()
     if (pong !== 'PONG') {
       throw new Error('Redis is not connected')
     }
-
     this.logger.log('Redis is connected')
   }
 
