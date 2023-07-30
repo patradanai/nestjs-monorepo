@@ -1,6 +1,4 @@
-import { PrismaModule } from '@app/modules/database'
-import { EnvModule } from '@app/modules/globals/env'
-import { LoggerModule } from '@app/modules/globals/logger'
+import { EnvModule, LoggerModule, PrismaModule } from '@app/modules'
 import { Module } from '@nestjs/common'
 
 import { AuthModule } from './auth/auth.module'

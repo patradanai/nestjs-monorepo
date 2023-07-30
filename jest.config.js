@@ -24,7 +24,9 @@ module.exports = {
       branches: 60,
     },
   },
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>',
+  }),
   coverageReporters: ['json-summary', 'lcov'],
   setupFiles: ['<rootDir>/test/setupTests.ts'],
 }

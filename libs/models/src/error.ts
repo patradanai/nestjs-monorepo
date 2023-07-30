@@ -1,6 +1,6 @@
-import { ErrorCode } from '@app/utils/statics/errors'
+import { IErrorCode } from '@app/utils/statics/errors'
 
-abstract class IErrorCode {
+abstract class IErrCodeException {
   abstract getCode(): string
   abstract getDescription(): string
   abstract getMessage(): string
@@ -8,13 +8,13 @@ abstract class IErrorCode {
   abstract getStack(): string
 }
 
-export class ErrCodeException extends Error implements IErrorCode {
+export class ErrCodeException extends Error implements IErrCodeException {
   private statusCode
   private errCode
   private errDesc
   private errMsg
 
-  constructor(error: ErrorCode) {
+  constructor(error: IErrorCode) {
     super()
 
     this.errCode = error.code
