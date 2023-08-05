@@ -21,18 +21,26 @@ export class CacheService implements ICacheService {
   }
 
   async set(key: string, value: string | number | Buffer): Promise<string> {
-    return await this.client.set(key, value)
+    const result = await this.client.set(key, value)
+    if (result !== 'OK') {
+      throw new Error(`key ${key} can't set value`)
+    }
+
+    return result
   }
 
   async get(key: string): Promise<string> {
     const result = await this.client.get(key)
 
-    if (!result) this.logger.warn(`key: ${key} not found.`)
-
+    if (!result) this.logger.warn(`key ${key} not found`)
     return result
   }
 
   async del(key: string): Promise<number> {
-    return await this.client.del(key)
+    const result = await this.client.del(key)
+    if (!result) {
+      throw new Error(`key ${key} can't delete`)
+    }
+    return result
   }
 }

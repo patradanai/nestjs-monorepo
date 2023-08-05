@@ -63,7 +63,43 @@ describe('CacheService', () => {
     })
   })
 
-  it('should be set value in cache', () => {})
+  describe('set Redis', () => {
+    it('should be set value in cache success', async () => {
+      const mocks = 'OK'
 
-  it('should be del value in cache', () => {})
+      cacheService.client.set = jest.fn().mockReturnValue(mocks)
+
+      await expect(cacheService.set('TEST', 'TEST')).resolves.toBe(mocks)
+    })
+
+    it('should be set value in cache unsuccess', async () => {
+      const mocks = 'FAIL'
+
+      cacheService.client.set = jest.fn().mockReturnValue(mocks)
+
+      await expect(cacheService.set('TEST', 'TEST')).rejects.toThrow(
+        `key TEST can't set value`,
+      )
+    })
+  })
+
+  describe('del Redis', () => {
+    it('should be del value in cache success', async () => {
+      const mocks = 1
+
+      cacheService.client.del = jest.fn().mockReturnValue(mocks)
+
+      await expect(cacheService.del('TEST')).resolves.toBe(mocks)
+    })
+
+    it('should be del value in cache unsuccess', async () => {
+      const mocks = undefined
+
+      cacheService.client.del = jest.fn().mockReturnValue(mocks)
+
+      await expect(cacheService.del('TEST')).rejects.toThrow(
+        "key TEST can't delete",
+      )
+    })
+  })
 })
