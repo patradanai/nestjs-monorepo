@@ -1,8 +1,8 @@
 import { HttpModule as HttpAxios, HttpService } from '@nestjs/axios'
-import { Module } from '@nestjs/common'
+import { Global, Module } from '@nestjs/common'
 
 import { EnvModule, EnvService } from '../env'
-
+@Global()
 @Module({
   imports: [
     HttpAxios.registerAsync({

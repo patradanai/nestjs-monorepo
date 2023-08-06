@@ -1,9 +1,10 @@
-import { Module } from '@nestjs/common'
+import { Global, Module } from '@nestjs/common'
 import { LoggerModule as LoggerModulePino } from 'nestjs-pino'
 
 import { EnvModule, EnvService } from '../env'
 import { LoggerService } from './logger.service'
 
+@Global()
 @Module({
   imports: [
     LoggerModulePino.forRootAsync({

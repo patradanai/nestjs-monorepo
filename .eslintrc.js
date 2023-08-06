@@ -15,7 +15,7 @@ module.exports = {
   ],
   extends: [
     'plugin:@typescript-eslint/recommended',
-    "plugin:@typescript-eslint/eslint-recommended",
+    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:prettier/recommended',
     'plugin:security/recommended',
     'plugin:you-dont-need-lodash-underscore/compatible',
@@ -33,22 +33,22 @@ module.exports = {
     'unicorn/prevent-abbreviations': 'off',
     'jest/expect-expect': 'off',
     'unicorn/prefer-top-level-await': 'off',
-    "unicorn/filename-case": [
-      "error",
+    'unicorn/filename-case': [
+      'error',
       {
-        "case": "camelCase"
-      }
+        case: 'camelCase',
+      },
     ],
     '@typescript-eslint/naming-convention': [
-      "error",
+      'error',
       {
-        "selector": "interface",
-        "format": ["PascalCase"],
-        "custom": {
-          "regex": "^I[A-Z]",
-          "match": true
-        }
-      }
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: true,
+        },
+      },
     ],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-explicit-any': ['error'],
@@ -68,5 +68,11 @@ module.exports = {
     'no-console': ['error'],
     complexity: ['error', 5],
     'spaced-comment': [2, 'always'],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'off',
+      },
+    ],
   },
-}
+};

@@ -1,46 +1,57 @@
-import { Injectable, Logger } from '@nestjs/common'
-import { Redis } from 'ioredis'
+import { Injectable, Logger, OnApplicationShutdown, OnModuleInit } from '@nestjs/common';
+import { Redis } from 'ioredis';
 
-import { ICacheService } from './adapter'
+import { ICacheService } from './adapter';
 
 @Injectable()
-export class CacheService implements ICacheService {
-  public client: Redis
-  private readonly logger = new Logger(CacheService.name)
+export class CacheService
+  implements ICacheService, OnApplicationShutdown, OnModuleInit
+{
+  public client: Redis;
+  private readonly logger = new Logger(CacheService.name);
 
   constructor(redisUrl: string) {
-    this.client = new Redis(redisUrl)
+    this.client = new Redis(redisUrl);
+  }
+
+
+  async onModuleInit() {
+    await this.client.connect();
+  }
+
+  async onApplicationShutdown(signal?: string) {
+    await this.client.quit();
   }
 
   async ping(): Promise<void> {
-    const pong = await this.client.ping()
+    const pong = await this.client.ping();
     if (pong !== 'PONG') {
-      throw new Error('Redis is not connected')
+      throw new Error('Redis is not connected');
     }
-    this.logger.log('Redis is connected')
+    this.logger.log('Redis is connected');
   }
 
   async set(key: string, value: string | number | Buffer): Promise<string> {
-    const result = await this.client.set(key, value)
+    const result = await this.client.set(key, value);
     if (result !== 'OK') {
-      throw new Error(`key ${key} can't set value`)
+      throw new Error(`key ${key} can't set value`);
     }
 
-    return result
+    return result;
   }
 
   async get(key: string): Promise<string> {
-    const result = await this.client.get(key)
+    const result = await this.client.get(key);
 
-    if (!result) this.logger.warn(`key ${key} not found`)
-    return result
+    if (!result) this.logger.warn(`key ${key} not found`);
+    return result;
   }
 
   async del(key: string): Promise<number> {
-    const result = await this.client.del(key)
+    const result = await this.client.del(key);
     if (!result) {
-      throw new Error(`key ${key} can't delete`)
+      throw new Error(`key ${key} can't delete`);
     }
-    return result
+    return result;
   }
 }

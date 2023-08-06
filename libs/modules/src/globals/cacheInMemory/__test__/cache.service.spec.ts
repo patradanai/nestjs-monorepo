@@ -104,3 +104,25 @@ describe('CacheInMemoryModule', () => {
 
  
 });
+
+
+// Mock Implatementation
+// class MockCache implements Cache {
+//     store: Map<string, any> = new Map<string, any>();
+  
+//     async get(key: string): Promise<any> {
+//       return this.store.get(key);
+//     }
+  
+//     async set(key: string, value: any, options?: any): Promise<void> {
+//       this.store.set(key, value);
+//     }
+  
+//     async del(key: string): Promise<void> {
+//       this.store.delete(key);
+//     }
+  
+//     async reset(): Promise<void> {
+//       this.store.clear();
+//     }
+//   }
